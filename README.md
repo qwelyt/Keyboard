@@ -6,7 +6,7 @@ Why? Because I want to. And I've yet to find a keyboard that looks the way I wan
 
 ## Layout
 The layout is a split keyboard with the keys in a matrix. Here's a pic
-https://github.com/qwelyt/Keyboard/blob/master/Design/Layout/layout.png
+![layout](https://github.com/qwelyt/Keyboard/blob/master/Design/Layout/layout.png)
 
 ### Why split?
 Every keyboard I've tried have always forced you to put your hands inwards, in a / \ way (pretend that's your arms). But I want to be able to keep my arms like | | or even \ /. With a split keyboard where you can move each module to where you want it to be you can achive this. I *think* this would give you better ergonomics, but we'll see. We might be using the one-module-fits-all approach for more than just cheaper-to-produce reasons. But if you never try, you never know.
