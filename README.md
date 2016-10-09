@@ -29,26 +29,23 @@ I'm using an Arduino Uno atm because that what I had laying around. For the fina
 Each module will be it's own keyboard. Meaning, each module will have it's own controller. So you don't need to plug in A to be able to use B and vice versa. This ofc means that, for 3 modules, you need 3 USB ports. So I will probably build a USB hub as well. Makes for a cleaner setup as you will only need 1 cable going to the computer. Might try building in retractable cables in everything, but well see how much of a pain that is.
 
 # Log
-Todo
-* Get diods
-* Print test module
-* Assemble test module
-* Code test module
-* Get real controller board
-* Refactor
-* Print module A
-* Print module B
-* Assemble A
-* Assemble B
-* Code A
-* Code B
-* ???
-* Profit
-
-Doing
-* Get hands on a 3D printer
-
-Done
-* Create basic working matrix
-* Create 3D skotches for modules
-
+| Todo | Doing | Done |
+|------|-------|------|
+||| Create basic working matrix |
+||| Create 3D sketches for modules |
+||Get hands on a 3D printer||
+| Get diods ||||
+| Print test module |||
+| Assemble test module |||
+| Code test module |||
+| Get real controller board |||
+| Refactor |||
+| Print module A |||
+| Print module B |||
+| Assemble A |||
+| Assemble B |||
+| Code A |||
+| Code B |||
+| ??? ||| 
+| Profit|||
+|---|
