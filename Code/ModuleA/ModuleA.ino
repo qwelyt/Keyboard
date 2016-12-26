@@ -20,12 +20,12 @@ int rows[] = {0,1,2,3,4,5};
 uint8_t lastFrame[8] = {0};
 
 uint8_t keys[numRows][numCols] = {
-    {0,0, Key.F1, Key.F2, Key.F3, Key.F4, Key.F5}
-    ,{}
-    ,{}
-    ,{}
-    ,{}
-    ,{}
+    {Key::NONE      ,Key::NONE      ,Key::F1    ,Key::F2    ,Key::F3        ,Key::F4    ,Key::F5}
+    ,{Key::NONE     ,Key::NONE      ,Key::K1    ,Key::K2    ,Key::K3        ,Key::K4    ,Key::K5}
+    ,{Key::TAB      ,Key::NONE      ,Key::Q     ,Key::W     ,Key::E         ,Key::R     ,Key::T}
+    ,{Key::ESC      ,Key::NONE      ,Key::A     ,Key::S     ,Key::D         ,Key::F     ,Key::G}
+    ,{Key::LSHFT    ,Key::BL_N_PIPE ,Key::Z     ,Key::X     ,Key::C         ,Key::V     ,Key::B}
+    ,{Key::LCTRL    ,Key::LSPR      ,Key::LALT  ,Key::MENU  ,Key::PRNT_SCRN ,Key::NONE  ,Key::SPACE}
 };
 
 void setup(){}
