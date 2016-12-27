@@ -213,26 +213,27 @@ bool isMeta(uint8_t key){
     }
     return false;
 }
-bool metaValue(uint8_t key){
+
+uint8_t metaValue(uint8_t key){
     switch(key){
         case Key::L_CTRL:
-            return 0b00000001;
+            return Mod::LCTRL;
         case Key::L_SHFT:
-            return 0b00000010;
+            return Mod::LSHFT;
         case Key::L_ALT:
-            return 0b00000100;
+            return Mod::LALT;
         case Key::L_SUPR:
-            return 0b00001000;
+            return Mod::LSUPR;
         case Key::R_CTRL:
-            return 0b00010000;
+            return Mod::RCTRL;
         case Key::R_SHFT:
-            return 0b00100000;
+            return Mod::RSHFT;
         case Key::R_ALT:
-            return 0b01000000;
+            return Mod::RALT;
         case Key::R_SUPR:
-            return 0b10000000;
+            return Mod::RSUPR;
         default:
-            return 0x00;
+            return 0;
     }
 }
 
