@@ -103,18 +103,18 @@ enum Key: uint8_t {
         , N0 = 0x62
         , NDOT = 0x63
 
-        , BL_N_PIPE = 0x64
+        , BS_N_PIPE = 0x64
         , MENU = 0x65
 
 
         // Special
-        , LSHFT = 0xF0
-        , LCTRL = 0xF1
-        , LSPR = 0xF2
-        , LALT = 0xF3
+        , L_CTRL = 0xE0
+        , L_SHFT = 0xE1
+        , L_ALT = 0xE2
+        , L_SUPR = 0xE3
 
-        , RSHFT = 0xF4
-        , RCTRL = 0xF5
-        , RSPR = 0xF6
-        , RALT = 0xF7
+        , R_CTRL = 0xE4
+        , R_SHFT = 0xE5
+        , R_ALT = 0xE6
+        , R_SUPR = 0xE7
 };
