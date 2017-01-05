@@ -81,7 +81,7 @@ void loop(){
 *******/
 void scan(){
     for(byte b=0; b<scanRounds; ++b){
-        debounce(0);
+        debounce(b);
         delay(50);
     }
     readState();
@@ -123,6 +123,17 @@ void readState(){
     }
 }
 
+void printState(){
+  for(int i=0; i<numRows; ++i){
+    Serial.println();
+    for(int j=0; j<numCols; ++j){
+      Serial.print(" ");
+      Serial.print(state[i][j], DEC);
+    }
+  }
+  Serial.println(); 
+}
+
 /********
 * State *
 ********/
@@ -154,7 +165,7 @@ void saveState(bool state[numRows][numCols]){
 
 void buildBufferAndSend(bool state[numRows][numCols]){
     for(byte b=0; b<numRows; ++b){
-        for(byte c=0; b<numCols; ++c){
+        for(byte c=0; c<numCols; ++c){
             if(state[b][c] == true){
                 addKeyToBuffer(keys[b][c]);
             }
