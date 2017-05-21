@@ -5,8 +5,8 @@ It's as simple as that.
 Why? Because I want to. And I've yet to find a keyboard that looks the way I want it to. The solution seems to be to build your own. So that's what I'm doing.
 
 ## Layout
-The layout is a split keyboard with the keys in a matrix. Here's a pic
-![layout](https://github.com/qwelyt/Keyboard/blob/master/Design/Layout/layout.png)
+The layout is a split keyboard with the keys in a matrix. Here's a pic (v2)
+![layout](https://github.com/qwelyt/Keyboard/blob/master/Design/Layout/keyboard-layout.png)
 
 ### Why split?
 Every keyboard I've tried have always forced you to put your hands inwards, in a / \ way (pretend that's your arms). But I want to be able to keep my arms like | | or even \ /. With a split keyboard where you can move each module to where you want it to be you can achive this. I *think* this would give you better ergonomics, but we'll see. We might be using the one-module-fits-all approach for more than just cheaper-to-produce reasons. But if you never try, you never know.
@@ -15,6 +15,9 @@ Every keyboard I've tried have always forced you to put your hands inwards, in a
 As far as I've found, the only reason we use keyboards with slanted columns is because 'it has always been like that'. Like, from the typewriter-era. And then it was for mechanical reasons. But now that we no longer have metal arms that must be physically fit into the layout, we can design it just as we want. And apparently the slanted-columns-layout is bad for you. You stretch your fingers in an un-natural way which puts strain on your limbs and increases the odds of injury.
 That is just bad. So I'm going for a matrix-layout because I like my fingers. They should have the best typing experiance they can have.
 
+### Raise and Lower?
+Do you really use *F1* so much that it needs its own dedicated key? I don't. So tucking it away under *Raise*+*1* works well. I think. Also, doing it layered gives you way more keys than you actually have. Take module A. It has 30 keys. 2 of which are layer modifiers. This gives me 28 keys to play with, in three layers. So I actually got 28x3 keys, so thats 84 keys in total. I probably won't use that many, but it is nice to have the possibility. Mainly though, it cuts down on parts used and size, which is a big things given that 3D-printers (or at least mine) can't print super-mega-big things. 
+Credit where it is due: The Planck keyboard has this (https://youtu.be/bEPg8kk84gw) which influenced me to have it as well.
 
 ## Parts
 This build is my first keyboard that I'm building from scratch. I've done a few mods, but never a complete build.
