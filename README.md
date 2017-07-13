@@ -38,11 +38,11 @@ Each module will be it's own keyboard. Meaning, each module will have it's own c
 ||| Create 3D sketches for modules |
 ||Create schematics for matrix ||
 |||Get hands on a 3D printer|
-| Get diods ||||
+||| Get diods ||
 || Print test module ||
 | Assemble test module |||
 | Code test module |||
-| Get real controller board |||
+||| Get real controller board |
 | Refactor |||
 | Print module A |||
 | Print module B |||
@@ -52,4 +52,4 @@ Each module will be it's own keyboard. Meaning, each module will have it's own c
 | Code B |||
 | ??? ||| 
 | Profit|||
-|---|
+
