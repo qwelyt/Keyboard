@@ -88,7 +88,9 @@ difference(){
   screwHole(3,moduleY-3);
 	screwHole(moduleX-3,moduleY-3);
 	screwHole(moduleX-3,3);
+  
 }
+
 
 hBeam(2, keyRows);
 //vBeam(2, keyCols);
@@ -99,3 +101,28 @@ vBeam2(1.3,1.3, 3.2, 4.4);
 vBeam2(2.6,2.6, 3.2, 4.4);
 vBeam(3,6);
 vBeam2(7,7, 2, 6);
+
+
+translate([0,0,-10]){
+  difference(){
+    cube([moduleX,moduleY,moduleZ]);
+    translate([10,5,0]){
+      cube([10,moduleY-10,moduleZ]);
+    }
+    translate([moduleX-20,5,0]){
+      cube([10,moduleY-10,moduleZ]);
+    }
+    
+    screwHole(3,3);
+    screwHole(3,moduleY-3);
+    screwHole(moduleX-3,moduleY-3);
+    screwHole(moduleX-3,3);
+  }
+  
+  translate([(moduleX/2)-9, edgeSpace, -5]){
+    cube([supportW,moduleY-(edgeSpace*2),5]);
+  }
+  translate([(moduleX/2)+9, edgeSpace, -5]){
+    cube([supportW,moduleY-(edgeSpace*2),5]);
+  }
+}
