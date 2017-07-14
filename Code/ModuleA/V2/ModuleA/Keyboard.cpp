@@ -53,28 +53,18 @@ void sendKeyBuffer(uint8_t meta, uint8_t keys[]) {
   KeyReport report;
 
   report.modifiers = meta;
-  report.keys[0] = keys[0];
-  report.keys[1] = keys[1];
-  report.keys[2] = keys[2];
-  report.keys[3] = keys[3];
-  report.keys[4] = keys[4];
-  report.keys[5] = keys[5];
+  
+  for(byte b=0; b<6; ++b){
+    report.keys[b] = keys[b];
+  }
 
-  //  uint8_t buf[8];
-  //
-  //  buf[0] = meta;
-  //  buf[1] = 0x0; // Reserved
-  //  buf[2] = keys[0];
-  //  buf[3] = keys[1];
-  //  buf[4] = keys[2];
-  //  buf[5] = keys[3];
-  //  buf[6] = keys[4];
-  //  buf[7] = keys[5];
-
-  //    char str[10];
-  //  snprintf(str, sizeof(str), "%d\r\n", report.keys[0]);
-  //  Serial.write(str);
-  //  Serial.println(keys[0], HEX);
+//  Serial.println();
+//  Serial.print(report.modifiers);
+//  for(byte b=0; b<6; ++b){
+//    Serial.print(" ");
+//    Serial.print(report.keys[b]);
+//  }
+//  Serial.println();
 
   HID().SendReport(REPORT_ID, &report, sizeof(report));
 }
