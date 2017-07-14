@@ -33,8 +33,8 @@ You will probably need root to execute the commands.
 ```
 % lsusb
 ```
-If you see `Atmel Corp. LUFA Keyboard Demo Application`, the Uno has the keyboard-0.3.hex.
-If you see `Arduino SA Uno (CDC ACM)`, the Uno has the usbserial-uno.hex.
+If you see `Atmel Corp. LUFA Keyboard Demo Application`, the Uno has the keyboard-0.3.hex.  
+If you see `Arduino SA Uno (CDC ACM)`, the Uno has the usbserial-uno.hex.  
 If you see `Atmel Corp. atmega16u2 DFU bootloader`, the Uno is ready to be flashed with new firmware.
 
 ## After flashing
