@@ -19,11 +19,15 @@
 //  bit 6: right alt
 //  bit 7: right GUI
 
+#include "Keyboard.h"
 #include "Key.h"
 
 #define numCols 7
 #define numRows 5
 #define scanRounds 2
+
+int blockPin = A0;
+int delayTimeBetweenScans = 10;
 
 int cols[] = {7, 8, 9, 10, 11, 12, 13};
 int rows[] = {2, 3, 4, 5, 6};
@@ -46,13 +50,17 @@ bool state[numRows][numCols] = {false};
 ///////////////
 
 void setup() {
-  Serial.begin(9600);
+  while(analogRead(blockPin) < 100){} // <-- Block everything if we short {blockPin} to GND
+  // This should help is a reprogramming is needed. Just short those and it should behave as an arduino instead of a keyboard.
+  
   for (byte b = 0; b < numRows; ++b) {
     setupRow(rows[b]);
   }
   for (byte b = 0; b < numCols; ++b) {
     setupCol(cols[b]);
   }
+  initKeyboard();
+  Serial.begin(115200);
 }
 
 void setupRow(byte pin) {
@@ -70,8 +78,8 @@ void loop() {
   scan();
   if (stateHasChanged(lastState, state)) {
     buildBufferAndSend(state);
+    saveState(state);
   }
-  saveState(state);
 }
 
 /*******
@@ -80,7 +88,7 @@ void loop() {
 void scan() {
   for (byte b = 0; b < scanRounds; ++b) {
     debounce(b);
-    delay(50);
+    delay(delayTimeBetweenScans);
   }
   readState();
 }
@@ -121,16 +129,6 @@ void readState() {
   }
 }
 
-void printState() {
-  for (int i = 0; i < numRows; ++i) {
-    Serial.println();
-    for (int j = 0; j < numCols; ++j) {
-      Serial.print(" ");
-      Serial.print(state[i][j], DEC);
-    }
-  }
-  Serial.println();
-}
 
 /********
   State
@@ -139,11 +137,9 @@ void printState() {
 bool stateHasChanged(bool lastState[numRows][numCols], bool state[numRows][numCols]) {
   for (byte b = 0; b < numRows; ++b) {
     for (byte c = 0; c < numCols; ++c) {
-      if (state[b][c] == true) {
         if (lastState[b][c] != state[b][c]) {
           return true;
         }
-      }
     }
   }
   return false;
@@ -202,9 +198,7 @@ void sendRest() {
 }
 
 void sendBuffer(uint8_t meta, uint8_t keyBuf[]) {
-  uint8_t buf[8];
-  buildBuffer(meta, keyBuf, buf);
-  send(buf);
+  sendKeyBuffer(meta, keyBuf);
   resetKeys();
 }
 
@@ -213,11 +207,20 @@ void resetKeys() {
     keyBuf[b] = 0x0;
   }
   keyPlace = 0;
+  meta = 0x0;
 }
 
 
 bool isMeta(uint8_t key) {
-  if (0xDF < key < 0xE8) { // Metas go from E0 to E7. Check Keys.h
+  if (key == Key::L_CTRL
+      || key == Key::L_SHFT
+      || key == Key::L_ALT
+      || key == Key::L_SUPR
+      || key == Key::R_CTRL
+      || key == Key::R_SHFT
+      || key == Key::R_ALT
+      || key == Key::R_SUPR
+  ) {
     return true;
   }
   return false;
@@ -246,17 +249,40 @@ uint8_t metaValue(uint8_t key) {
   }
 }
 
-void buildBuffer(uint8_t meta, uint8_t keys[], uint8_t buf[]) {
-  buf[0] = meta;
-  buf[1] = 0x0; // Reserved
-  buf[2] = keys[0];
-  buf[3] = keys[1];
-  buf[4] = keys[2];
-  buf[5] = keys[3];
-  buf[6] = keys[4];
-  buf[7] = keys[5];
+/*****************
+  Debugs
+******************/
+
+void printState() {
+  for (int i = 0; i < numRows; ++i) {
+    Serial.println();
+    for (int j = 0; j < numCols; ++j) {
+      Serial.print(" ");
+      Serial.print(state[i][j], DEC);
+    }
+  }
+  Serial.println();
 }
 
-void send(uint8_t buf[]) {
-  Serial.write(buf, 8);
+void printLastState() {
+  for (int i = 0; i < numRows; ++i) {
+    Serial.println();
+    for (int j = 0; j < numCols; ++j) {
+      Serial.print(" ");
+      Serial.print(lastState[i][j], DEC);
+    }
+  }
+  Serial.println();
 }
+
+void printPressed() {
+  for (int i = 0; i < numRows; ++i) {
+    Serial.println();
+    for (int j = 0; j < numCols; ++j) {
+      Serial.print(" ");
+      Serial.print(pressed[0][i][j], DEC);
+    }
+  }
+  Serial.println();
+}
+
