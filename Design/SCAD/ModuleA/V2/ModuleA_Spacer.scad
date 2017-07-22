@@ -1,12 +1,5 @@
 /* Module A v2
-<<<<<<< HEAD
  * Spacer
-=======
- * Fewer keys
- * Keycaps actually fit
- * Cross beams for support
- * Keys actally  fit, snuggly
->>>>>>> 602eaa5c0359e26e8784f7dcb346c5b6edaf8154
  */
  
 keyCols = 7;
@@ -59,9 +52,4 @@ translate([0,0,0]){
       cube([moduleX-reducer,moduleY-edgeSpace,screws]);
     }
   }
-<<<<<<< HEAD
-  echo(moduleX);
-  echo(moduleY);
-=======
->>>>>>> 602eaa5c0359e26e8784f7dcb346c5b6edaf8154
 }
