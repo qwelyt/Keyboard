@@ -1,6 +1,6 @@
 
 width= 34;
-length = 50;
+length = 51-0.1;
 height = 4.5;
 
 left = [40,0,0];
@@ -21,15 +21,27 @@ color([0,1,0]){
       
     difference(){
       cube([width,length,height]);
+      
+      // Inner
       translate([8,1.3,2.65]){
-        cube([18,48,3]);
+        cube([18,length-2,3]); // Where arduino sits
       }
+      
+      smallHoles = 0.6;
       translate([11,1.3,0]){
-        cube([12,48,3]);
+        cube([12,length-2,3]); // remove middle short sides
+        translate([-1.5,1.5,-1]) cylinder(h=20, r=smallHoles, $fn=10);
+        translate([12+1.5,1.5,-1]) cylinder(h=20, r=smallHoles, $fn=10);
+        
       }
       translate([8,4.3,0]){
-        cube([18,42,3]);
+        cube([18,length-8,3]); // remove middle longsides
+        
+        translate([1.5,length-8+1.5,-1]) cylinder(h=20, r=smallHoles, $fn=10);
+        translate([18-1.5,length-8+1.5,-1]) cylinder(h=20, r=smallHoles, $fn=10);
       }
+      
+      // Outer
       translate([0,2,2]){
         cube([7,length,3]);
       }

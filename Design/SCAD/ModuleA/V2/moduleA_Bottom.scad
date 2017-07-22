@@ -22,8 +22,13 @@ module screwHoleD (x, y, depth){
 
 thickness = 8.5;
 
-translate([0,0,-(9+thickness)]){
 
+translate([(140-34)/2, 97.5-50, 1]){
+color([1,0,0])translate([34,50,0])  rotate([0,0,180]) import("moduleA_arudinoMicro_holder.stl");
+
+}
+
+translate([0,0,0]){
   difference(){
     cube([moduleX,moduleY,thickness]);
     screws = thickness+2;
@@ -34,17 +39,30 @@ translate([0,0,-(9+thickness)]){
     
     reducer = (edgeSpace*2+3);
     translate([edgeSpace/2,edgeSpace+1.5,2]){
-      cube([moduleX-edgeSpace,moduleY-reducer,thickness-2]);
+      cube([moduleX-edgeSpace,moduleY-reducer,thickness-1]);
     }
     translate([edgeSpace+2,(edgeSpace/2),2]){
-      cube([moduleX-reducer,moduleY-edgeSpace,thickness-2]);
+      cube([moduleX-reducer,moduleY-edgeSpace,thickness-1]);
     }   
-    translate([(140-34)/2, 97.5-50, 2]){
-      cube([34,50,thickness-2]);
+    leng = 51;
+    wid = 34;
+    thi = thickness;
+    translate([(140-wid)/2, 97.5-leng, 1]){
+      cube([wid,leng,thi]);
     }
     translate([(140-34)/2, 97.5-2, 1]){
-      cube([34,4,thickness-2]);
+      //cube([34,4,thickness-2]);
     }
     
+    smallHoles = 1.5;
+    translate([(140-34)/2, 97.5-50, 1]){
+      translate([3.5,14.1,-2]) cylinder(h=20, r=smallHoles, $fn=10);
+      translate([3.5,leng-16,-2]) cylinder(h=20, r=smallHoles, $fn=10);
+    }
+    
+    translate([(140-34)/2+27, 97.5-50, 1]){
+      translate([3.5,14.1,-2]) cylinder(h=20, r=smallHoles, $fn=10);
+      translate([3.5,leng-16,-2]) cylinder(h=20, r=smallHoles, $fn=10);
+    }
   }
  }
