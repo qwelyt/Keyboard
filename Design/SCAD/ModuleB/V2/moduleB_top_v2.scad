@@ -39,6 +39,14 @@ module keyHoles (yStart, yEnd, xStart, xEnd){
   }
 }
 
+module keyHoles2 (yStart, yEnd, xStart, xEnd, keySize){
+  for(y = [yStart:yEnd]){
+    for(x = [xStart:xEnd]){
+      translate(position(x,y,keyZ)) cube(keySize);
+    }
+  }
+}
+
 module hBeam (bStart, bEnd){
   for (b = [bStart:bEnd]){  
     color([0.5,0,0]){
@@ -79,13 +87,15 @@ module vBeam2 (xStart, xEnd, yStart, yEnd){
     }
 }
 
+
 difference(){
   cube([moduleX,moduleY,moduleZ]);
   keyHoles(1,1,2,7);
   keyHoles(2,2,1,5);
   keyHoles(2,2,6.5,6.5);
   keyHoles(3,5,1,6);
-  keyHoles(3.5,3.5,7,7);
+  //keyHoles(3.6,3.6,7,7);
+  keyHoles2(3.53,3.53,7.06,7.06, [keyY, keyX, moduleZ+2]);
   keyHoles(5,5,7,7);
 
   

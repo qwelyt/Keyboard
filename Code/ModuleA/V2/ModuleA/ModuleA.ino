@@ -7,7 +7,7 @@
 //   2(3)   |Tab   |      |Q     |W     |E      |R      |T
 //   3(4)   |ESC   |      |A     |S     |D      |F      |G
 //   4(5)   |Shft  |<>|   |Z     |X     |C      |V      |B
-//   5(6)   |Ctrl  |GUI   |Alt   |Lower |Raise  |       |Space
+//   5(6)   |Ctrl  |GUI   |Lower |Raise |Alt    |       |Space
 //
 // Modifier bitfield:
 //  bit 0: left control
@@ -39,7 +39,7 @@ uint8_t keys[numRows][numCols] = {
   , {Key::TAB     , Key::NONE      , Key::Q     , Key::W     , Key::E         , Key::R     , Key::T}
   , {Key::ESC     , Key::NONE      , Key::A     , Key::S     , Key::D         , Key::F     , Key::G}
   , {Key::L_SHFT  , Key::BS_N_PIPE , Key::Z     , Key::X     , Key::C         , Key::V     , Key::B}
-  , {Key::L_CTRL  , Key::L_SUPR    , Key::L_ALT , Key::NONE  , Key::NONE      , Key::NONE  , Key::SPACE} // Raise and lower not done
+  , {Key::L_CTRL  , Key::L_SUPR    , Key::NONE  , Key::NONE  , Key::L_ALT     , Key::NONE  , Key::SPACE} // Raise and lower not done
 };
 
 bool pressed[scanRounds][numRows][numCols] = {};
