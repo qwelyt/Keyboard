@@ -1,9 +1,15 @@
 /* Module A v2
  * Fewer keys
- * Keycaps actually fit
  * Cross beams for support
  * Keys actally  fit, snuggly
  */
+ 
+top=false;
+beams=false;
+spacer=false;
+uSupports=false;
+uHolder=true;
+bottom=true;
  
 keyCols = 7;
 keyRows = 5;
@@ -187,7 +193,7 @@ rSup = (supportH)*4+1;
 rSupY = -(supportH)*4+1;
 module uSupport(){
   difference(){
-    screwHoleDR(3,3,rSup, 2);
+    screwHoleDR(3,3,rSup, 2.7);
     screwHoleDR(3,3,rSup-5, 1.5);
   }
 }
@@ -252,64 +258,72 @@ module bottom(){
   }
 }
 
-difference(){
-  cube([moduleX,moduleY,moduleZ]);
-  keyHoles(1,1,2,7);
-  keyHoles(2,2,1,5);
-  keyHoles(2,2,6.5,6.5);
-  keyHoles(3,5,1,6);
-  //keyHoles(3.6,3.6,7,7);
-  keyHoles2(3.53,3.53,7.06,7.06, [keyY, keyX, moduleZ+2]);
-  keyHoles(5,5,7,7);
+if(top){
+  difference(){
+    cube([moduleX,moduleY,moduleZ]);
+    keyHoles(1,1,2,7);
+    keyHoles(2,2,1,5);
+    keyHoles(2,2,6.5,6.5);
+    keyHoles(3,5,1,6);
+    //keyHoles(3.6,3.6,7,7);
+    i=3.43;
+    keyHoles2(i,i,7.06,7.06, [keyY, keyX, moduleZ+2]);  
+    keyHoles(5,5,7,7);
 
+    
+    screwHole(3,3);
+    screwHole(3,moduleY-3);
+    screwHole(moduleX-3,moduleY-3);
+    screwHole(moduleX-3,3);
+  }
   
-  screwHole(3,3);
-  screwHole(3,moduleY-3);
-	screwHole(moduleX-3,moduleY-3);
-	screwHole(moduleX-3,3);
 }
 
+if(beams){
+  hBeam(2, 3);
+  hBeam2(1, 7.5,4,4);
+  hBeam(5,5);
 
-
-hBeam(2, 3);
-hBeam2(1, 7.5,4,4);
-hBeam(5,5);
-
-vBeam(2, 6);
-vBeam2(6.3, 6.3, 1.8,1.7);
-vBeam2(6.85, 6.85, 0.91,1.5);
-vBeam2(7.5, 7.5, 1.8,1.7);
-vBeam2(6.85, 6.85, 2.8,4.54);
-
-
-translate([0,0,-(supportH+1)*2]){
-  spacer();
+  vBeam(2, 6);
+  vBeam2(6.3, 6.3, 1.8,1.7);
+  vBeam2(6.85, 6.85, 0.91,1.5);
+  vBeam2(7.5, 7.5, 1.8,1.7);
+  vBeam2(6.85, 6.85, 2.8,4.54);
 }
 
-
-translate([(moduleX/2)+34/2, moduleY, -(supportH)*4-2.7]){
-  rotate(180){
-    microHolder();
+if(spacer){
+  translate([0,0,-(supportH+1)*2]){
+    spacer();
   }
 }
 
-
-
-translate([55.1,55,rSupY]){
-  uSupport();
+if(uSupports){
+  translate([55.1,55,rSupY]){
+    uSupport();
+  }
+  translate([78.3,55,rSupY]){
+    uSupport();
+  }
+  translate([55.1,73,rSupY]){
+    uSupport();
+  }
+  translate([78.3,73,rSupY]){
+    uSupport();
+  }
 }
 
-translate([78.3,55,rSupY]){
-  uSupport();
+if(uHolder){
+  translate([0,60,0]){
+  translate([(moduleX/2)+34/2, moduleY, -(supportH)*4-2.7]){
+    rotate(180){
+      microHolder();
+    }
+  }
+}
 }
 
-translate([55.1,73,rSupY]){
-  uSupport();
-}
-translate([78.3,73,rSupY]){
-  uSupport();
-}
-
+if(bottom){
 translate([0,0,rSupY-4.8]){
   bottom();
+}
 }

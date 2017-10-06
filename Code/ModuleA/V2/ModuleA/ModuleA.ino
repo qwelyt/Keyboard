@@ -32,15 +32,44 @@ int delayTimeBetweenScans = 10;
 int cols[] = {7, 8, 9, 10, 11, 12, 13};
 int rows[] = {2, 3, 4, 5, 6};
 
-uint8_t lastFrame[8] = {0};
-
 uint8_t keys[numRows][numCols] = {
-  {Key::NONE      , Key::NONE      , Key::K1    , Key::K2    , Key::K3        , Key::K4    , Key::K5}
-  , {Key::TAB     , Key::NONE      , Key::Q     , Key::W     , Key::E         , Key::R     , Key::T}
-  , {Key::ESC     , Key::NONE      , Key::A     , Key::S     , Key::D         , Key::F     , Key::G}
-  , {Key::L_SHFT  , Key::BS_N_PIPE , Key::Z     , Key::X     , Key::C         , Key::V     , Key::B}
-  , {Key::L_CTRL  , Key::L_SUPR    , Key::NONE  , Key::NONE  , Key::L_ALT     , Key::NONE  , Key::SPACE} // Raise and lower not done
+    {Key::NONE      , Key::NONE      , Key::K1    , Key::K2    , Key::K3        , Key::K4    , Key::K5}
+    , {Key::TAB     , Key::NONE      , Key::Q     , Key::W     , Key::E         , Key::R     , Key::T}
+    , {Key::ESC     , Key::NONE      , Key::A     , Key::S     , Key::D         , Key::F     , Key::G}
+    , {Key::L_SHFT  , Key::BS_N_PIPE , Key::Z     , Key::X     , Key::C         , Key::V     , Key::B}
+    , {Key::L_CTRL  , Key::L_SUPR    , Key::VOL_UP  , Key::VOL_DOWN  , Key::L_ALT     , Key::NONE  , Key::SPACE} // Raise and lower not done
 };
+//uint8_t keys[4][numRows][numCols] = {
+//  { // Normal
+//    {Key::NONE      , Key::NONE      , Key::K1    , Key::K2    , Key::K3        , Key::K4    , Key::K5}
+//    , {Key::TAB     , Key::NONE      , Key::Q     , Key::W     , Key::E         , Key::R     , Key::T}
+//    , {Key::ESC     , Key::NONE      , Key::A     , Key::S     , Key::D         , Key::F     , Key::G}
+//    , {Key::L_SHFT  , Key::BS_N_PIPE , Key::Z     , Key::X     , Key::C         , Key::V     , Key::B}
+//    , {Key::L_CTRL  , Key::L_SUPR    , Key::NONE  , Key::NONE  , Key::L_ALT     , Key::NONE  , Key::SPACE} // Raise and lower not done
+//  }
+//  , { // Raise
+//    {Key::NONE      , Key::NONE      , Key::F1    , Key::F2    , Key::F3        , Key::F4    , Key::F5}
+//    , {Key::TAB     , Key::NONE      , Key::GACC     , Key::W     , Key::E         , Key::R     , Key::T}
+//    , {Key::ESC     , Key::NONE      , Key::A     , Key::S     , Key::D         , Key::F     , Key::G}
+//    , {Key::L_SHFT  , Key::BS_N_PIPE , Key::Z     , Key::X     , Key::C         , Key::V     , Key::B}
+//    , {Key::L_CTRL  , Key::L_SUPR    , Key::NONE  , Key::NONE  , Key::L_ALT     , Key::NONE  , Key::SPACE}
+//    }
+//  , { // Lower
+//    {Key::NONE      , Key::NONE      , Key::K1    , Key::K2    , Key::K3        , Key::K4    , Key::K5}
+//    , {Key::TAB     , Key::NONE      , Key::Q     , Key::W     , Key::E         , Key::R     , Key::T}
+//    , {Key::ESC     , Key::NONE      , Key::A     , Key::S     , Key::D         , Key::F     , Key::G}
+//    , {Key::L_SHFT  , Key::BS_N_PIPE , Key::Z     , Key::X     , Key::C         , Key::V     , Key::B}
+//    , {Key::L_CTRL  , Key::L_SUPR    , Key::NONE  , Key::NONE  , Key::L_ALT     , Key::NONE  , Key::SPACE}
+//    }
+//  , { // Both
+//    {Key::NONE      , Key::NONE      , Key::K1    , Key::K2    , Key::K3        , Key::K4    , Key::K5}
+//    , {Key::TAB     , Key::NONE      , Key::Q     , Key::W     , Key::E         , Key::R     , Key::T}
+//    , {Key::ESC     , Key::NONE      , Key::A     , Key::S     , Key::D         , Key::F     , Key::G}
+//    , {Key::L_SHFT  , Key::BS_N_PIPE , Key::Z     , Key::X     , Key::C         , Key::V     , Key::B}
+//    , {Key::L_CTRL  , Key::L_SUPR    , Key::NONE  , Key::NONE  , Key::L_ALT     , Key::NONE  , Key::SPACE}
+//    
+//    }
+//};
 
 bool pressed[scanRounds][numRows][numCols] = {};
 

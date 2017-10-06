@@ -106,6 +106,15 @@ enum Key: uint8_t {
     , BS_N_PIPE = 0x64
     , MENU = 0x65
 
+    // Multimedia
+    //, MUTE = 0x120
+    , VOL_UP = 0x80
+    , VOL_DOWN = 0x81
+    , MEDIA_PLAYPAUSE = 0xe8
+    , MEDIA_STOPCD = 0xe9
+    , MEDIA_PREVIOUSSONG = 0xea
+    , MEDIA_NEXTSONG = 0xeb
+
 
     // Special
     , L_CTRL = 0xE0
@@ -117,6 +126,10 @@ enum Key: uint8_t {
     , R_SHFT = 0xE5
     , R_ALT = 0xE6
     , R_SUPR = 0xE7
+
+    // These should not be sent to host
+    , RAISE = 0xFE
+    , LOWER = 0xFF
 };
 
 enum Mod: uint8_t {
