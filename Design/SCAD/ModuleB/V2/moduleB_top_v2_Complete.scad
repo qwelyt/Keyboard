@@ -7,9 +7,9 @@
 top=false;
 beams=false;
 spacer=false;
-uSupports=false;
-uHolder=true;
-bottom=true;
+uSupports=true;
+uHolder=false;
+bottom=false;
  
 keyCols = 7;
 keyRows = 5;
@@ -195,6 +195,7 @@ module uSupport(){
   difference(){
     screwHoleDR(3,3,rSup, 2.7);
     screwHoleDR(3,3,rSup-5, 1.5);
+    
   }
 }
 
@@ -298,17 +299,46 @@ if(spacer){
 }
 
 if(uSupports){
-  translate([55.1,55,rSupY]){
-    uSupport();
+  difference(){
+    translate([55.1,55,rSupY]){
+      uSupport();
+    }
+    translate([(moduleX/2)+34/2, moduleY, -(supportH)*4-2.7]){
+      rotate(180){
+        microHolder();
+      }
+    }
   }
-  translate([78.3,55,rSupY]){
-    uSupport();
+  difference(){
+    translate([78.3,55,rSupY]){
+      uSupport();
+    }
+    translate([(moduleX/2)+34/2, moduleY, -(supportH)*4-2.7]){
+      rotate(180){
+        microHolder();
+      }
+    }
   }
-  translate([55.1,73,rSupY]){
-    uSupport();
+  difference(){
+    translate([55.1,73,rSupY]){
+      uSupport();
+    }
+    translate([(moduleX/2)+34/2, moduleY, -(supportH)*4-2.7]){
+      rotate(180){
+        microHolder();
+      }
+    }
   }
-  translate([78.3,73,rSupY]){
-    uSupport();
+    
+  difference(){
+    translate([78.3,73,rSupY]){
+      uSupport();
+    }
+    translate([(moduleX/2)+34/2, moduleY, -(supportH)*4-2.7]){
+      rotate(180){
+        microHolder();
+      }
+    }
   }
 }
 

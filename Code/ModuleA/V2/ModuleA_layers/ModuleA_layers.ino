@@ -14,10 +14,10 @@
  	  }
 */
 
-byte numCols = 7;
-byte numRows = 5;
-byte layers = 3; // Normal, raise, lower
-byte scanRounds = 2;
+const byte numCols = 7;
+const byte numRows = 5;
+const byte layers = 3; // Normal, raise, lower
+const byte scanRounds = 2;
 
 int blockPin  = A0;
 int delayTimeInMSBetweenScans = 10;
@@ -25,21 +25,15 @@ int delayTimeInMSBetweenScans = 10;
 // Setup matrix. Map the pins.
 int cols[numCols] = {7, 8, 9, 10, 11, 12, 13};
 int rows[numRows] = {2, 3, 4, 5, 6};
-typedef struct {
+
+struct ModPosition{
   byte row;
   byte col;
   byte val;
-} ModPosition;
+};
 
-ModPosition lower;
-lower.row = 5;
-lower.col = 3;
-lower.val = 2;
-
-ModPosition raise;
-raise.row = 5;
-raise.col = 4;
-raise.val = 1;
+const ModPosition lower = {4,2,2};
+const ModPosition raise = {4,3,1};
 
 uint8_t keys[layers][numRows][numCols] = {
   { // Normal (0)
@@ -57,11 +51,11 @@ uint8_t keys[layers][numRows][numCols] = {
     , {Key::L_CTRL  , Key::L_SUPR , MOD::LOWER , MOD::RAISE , Key::L_ALT , Key::NONE , Key::NONE}
   }
   , { // Lower(2)
-    {Key::NONE      , Key::NONE   , Key::MUTE  , Key::VOLDN , Key::VOLUP , Key::NONE , Key::NONE}
-    , {Key::TAB     , Key::NONE   , Key::PLAY  , Key::PREV  , Key::NEXT  , Key::NONE , Key::NONE}
-    , {Key::ESC     , Key::NONE   , Key::NONE  , Key::NONE  , Key::NONE  , Key::NONE , Key::NONE}
-    , {Key::L_SHFT  , Key::NONE   , Key::NONE  , Key::NONE  , Key::NONE  , Key::NONE , Key::NONE}
-    , {Key::L_CTRL  , Key::L_SUPR , MOD::LOWER , MOD::RAISE , Key::L_ALT , Key::NONE , Key::NONE}
+    {Key::NONE      , Key::NONE   , Key::MUTE  , Key::VOL_DN , Key::VOL_UP , Key::NONE , Key::NONE}
+    , {Key::TAB     , Key::NONE   , Key::PLAY  , Key::PREV   , Key::NEXT   , Key::NONE , Key::NONE}
+    , {Key::ESC     , Key::NONE   , Key::NONE  , Key::NONE   , Key::NONE   , Key::NONE , Key::NONE}
+    , {Key::L_SHFT  , Key::NONE   , Key::NONE  , Key::NONE   , Key::NONE   , Key::NONE , Key::NONE}
+    , {Key::L_CTRL  , Key::L_SUPR , MOD::LOWER , MOD::RAISE  , Key::L_ALT  , Key::NONE , Key::NONE}
   }
 };
 
@@ -116,7 +110,7 @@ void loop() {
 void scan() {
   for (byte b = 0; b < scanRounds; ++b) {
     debounce(b);
-    delay(delayTimeBetweenScans);
+    delay(delayTimeInMSBetweenScans);
   }
   readState();
 }
@@ -172,7 +166,7 @@ bool stateHasChanged(bool lastState[numRows][numCols], bool state[numRows][numCo
   return false;
 }
 
-void saveState(bool state[numRows][numCols]) {
+void save(bool state[numRows][numCols]) {
   for (byte b = 0; b < numRows; ++b) {
     for (byte c = 0; c < numCols; ++c) {
       lastState[b][c] = state[b][c];
@@ -184,12 +178,13 @@ void saveState(bool state[numRows][numCols]) {
   Build and send
 ******************/
 
-void buildBufferAndSend(bool state[numRows][numCols]) {
-  byte layer = layer();
+void buildAndSend(bool state[numRows][numCols]) {
+  byte l = layer(state);
+    
   for (byte b = 0; b < numRows; ++b) {
     for (byte c = 0; c < numCols; ++c) {
       if (state[b][c] == true) {
-        addKeyToBuffer(keys[layer][b][c]);
+        addKeyToBuffer(keys[l][b][c]);
       }
     }
   }
@@ -290,4 +285,60 @@ uint8_t metaValue(uint8_t key) {
     default:
       return 0;
   }
+}
+
+
+/*****************
+  Debugs
+******************/
+
+void printState() {
+  Serial.print(" ");
+  for (int j = 0; j < numCols; ++j) {
+      Serial.print(" ");
+      Serial.print(j);
+  }
+  for (int i = 0; i < numRows; ++i) {
+    Serial.println();
+    Serial.print(i);
+    for (int j = 0; j < numCols; ++j) {
+      Serial.print(" ");
+      Serial.print(state[i][j], DEC);
+    }
+  }
+  Serial.println();
+}
+
+void printLayer(){
+  Serial.print("Lower: ");
+  printPos(lower.row, lower.col);
+  Serial.print(" || Raise: ");
+  printPos(raise.row, raise.col);
+  Serial.println();
+}
+
+void printPos(byte r, byte c){
+  Serial.print(state[r][c], DEC);
+}
+
+void printLastState() {
+  for (int i = 0; i < numRows; ++i) {
+    Serial.println();
+    for (int j = 0; j < numCols; ++j) {
+      Serial.print(" ");
+      Serial.print(lastState[i][j], DEC);
+    }
+  }
+  Serial.println();
+}
+
+void printPressed() {
+  for (int i = 0; i < numRows; ++i) {
+    Serial.println();
+    for (int j = 0; j < numCols; ++j) {
+      Serial.print(" ");
+      Serial.print(pressed[0][i][j], DEC);
+    }
+  }
+  Serial.println();
 }
