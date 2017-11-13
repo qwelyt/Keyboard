@@ -36,14 +36,14 @@ Each module will be it's own keyboard. Meaning, each module will have it's own c
 |------|-------|------|
 ||| Create basic working matrix |
 ||| Create 3D sketches for modules |
-||Create schematics for matrix ||
+|||Create schematics for matrix |
 |||Get hands on a 3D printer|
-||| Get diods ||
-|| Print test module ||
-| Assemble test module |||
-| Code test module |||
+||| Get diods |
+||| Print test module |
+||| Assemble test module |
+||| Code test module |
 ||| Get real controller board |
-| Refactor |||
+|| Refactor ||
 | Print module A |||
 | Print module B |||
 | Assemble A |||
