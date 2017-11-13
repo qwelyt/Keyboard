@@ -32,30 +32,30 @@ struct ModPosition{
   byte val;
 };
 
-const ModPosition lower = {4,2,2};
-const ModPosition raise = {4,3,1};
+const ModPosition lower = {4,3,2};
+const ModPosition raise = {4,2,1};
 
 uint8_t keys[layers][numRows][numCols] = {
   { // Normal (0)
-    {Key::NONE      , Key::NONE      , Key::K1    , Key::K2    , Key::K3        , Key::K4    , Key::K5}
-    , {Key::TAB     , Key::NONE      , Key::Q     , Key::W     , Key::E         , Key::R     , Key::T}
-    , {Key::ESC     , Key::NONE      , Key::A     , Key::S     , Key::D         , Key::F     , Key::G}
-    , {Key::L_SHFT  , Key::BS_N_PIPE , Key::Z     , Key::X     , Key::C         , Key::V     , Key::B}
-    , {Key::L_CTRL  , Key::L_SUPR    , MOD::LOWER , MOD::RAISE , Key::L_ALT     , Key::NONE  , Key::SPACE}
+    {Key::K6      , Key::K7    , Key::K8    , Key::K9    , Key::K0    , Key::DASH    , Key::EQUAL}
+    , {Key::Y     , Key::U     , Key::I     , Key::O     , Key::P     , Key::OBRAKET , Key::RETURN}
+    , {Key::H     , Key::J     , Key::K     , Key::L     , Key::COLON , Key::QUOTE   , Key::NONE}
+    , {Key::N     , Key::M     , Key::COMMA , Key::DOT   , Key::SLASH , Key::NONE    , Key::BACKSPACE}
+    , {Key::NONE  , Key::R_ALT , MOD::RAISE , MOD::LOWER , Key::L_ALT , Key::NONE    , Key::R_CTRL}
   }
   , { // Raise (1)
-    {Key::NONE      , Key::NONE   , Key::F1    , Key::F2    , Key::F3    , Key::F4   , Key::F5}
-    , {Key::TAB     , Key::NONE   , Key::NONE  , Key::NONE  , Key::NONE  , Key::NONE , Key::NONE}
-    , {Key::ESC     , Key::NONE   , Key::NONE  , Key::NONE  , Key::NONE  , Key::NONE , Key::NONE}
-    , {Key::L_SHFT  , Key::NONE   , Key::NONE  , Key::NONE  , Key::NONE  , Key::NONE , Key::NONE}
-    , {Key::L_CTRL  , Key::L_SUPR , MOD::LOWER , MOD::RAISE , Key::L_ALT , Key::NONE , Key::NONE}
+    {Key::F6     , Key::F7      , Key::F8      , Key::F9      , Key::F10   , Key::F11   , Key::F12}
+    , {Key::NONE , Key::NONE    , Key::ARROW_U , Key::NONE    , Key::NONE  , Key::NONE  , Key::RETURN}
+    , {Key::NONE , Key::ARROW_L , Key::ARROW_D , Key::ARROW_R , Key::NONE  , Key::TILDE , Key::NONE}
+    , {Key::NONE , Key::NONE    , Key::NONE    , Key::NONE    , Key::NONE  , Key::NONE  , Key::BACKSPACE}
+    , {Key::NONE , Key::R_ALT   , MOD::RAISE   , MOD::LOWER   , Key::L_ALT , Key::NONE  , Key::R_CTRL}
   }
   , { // Lower(2)
-    {Key::NONE      , Key::NONE   , Key::MUTE  , Key::VOL_DN , Key::VOL_UP , Key::NONE , Key::NONE}
-    , {Key::TAB     , Key::NONE   , Key::PLAY  , Key::PREV   , Key::NEXT   , Key::NONE , Key::NONE}
-    , {Key::ESC     , Key::NONE   , Key::NONE  , Key::NONE   , Key::NONE   , Key::NONE , Key::NONE}
-    , {Key::L_SHFT  , Key::NONE   , Key::NONE  , Key::NONE   , Key::NONE   , Key::NONE , Key::NONE}
-    , {Key::L_CTRL  , Key::L_SUPR , MOD::LOWER , MOD::RAISE  , Key::L_ALT  , Key::NONE , Key::NONE}
+    {Key::NONE   , Key::NONE  , Key::NONE  , Key::NONE  , Key::NONE , Key::NONE   , Key::NONE}
+    , {Key::NONE , Key::NONE  , Key::NONE  , Key::NONE  , Key::NONE , Key::NONE   , Key::RETURN}
+    , {Key::NONE , Key::NONE  , Key::NONE  , Key::NONE  , Key::NONE , Key::NONE   , Key::NONE}
+    , {Key::NONE , Key::NONE  , Key::NONE  , Key::NONE  , Key::NONE , Key::NONE   , Key::BACKSPACE}
+    , {Key::NONE , Key::R_ALT , MOD::RAISE , MOD::LOWER , Key::MENU , Key::R_SUPR , Key::R_CTRL}
   }
 };
 
