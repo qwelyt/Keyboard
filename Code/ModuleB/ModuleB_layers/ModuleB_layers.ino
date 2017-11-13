@@ -32,30 +32,30 @@ struct ModPosition{
   byte val;
 };
 
-const ModPosition lower = {4,3,2};
 const ModPosition raise = {4,2,1};
+const ModPosition lower = {4,5,2};
 
 uint8_t keys[layers][numRows][numCols] = {
   { // Normal (0)
-    {Key::K6      , Key::K7    , Key::K8    , Key::K9    , Key::K0    , Key::DASH    , Key::EQUAL}
-    , {Key::Y     , Key::U     , Key::I     , Key::O     , Key::P     , Key::OBRAKET , Key::RETURN}
-    , {Key::H     , Key::J     , Key::K     , Key::L     , Key::COLON , Key::QUOTE   , Key::NONE}
-    , {Key::N     , Key::M     , Key::COMMA , Key::DOT   , Key::SLASH , Key::NONE    , Key::BACKSPACE}
-    , {Key::NONE  , Key::R_ALT , MOD::RAISE , MOD::LOWER , Key::L_ALT , Key::NONE    , Key::R_CTRL}
+    {Key::K6      , Key::K7    , Key::K8    , Key::K9     , Key::K0    , Key::DASH    , Key::EQUAL}
+    , {Key::Y     , Key::U     , Key::I     , Key::O      , Key::P     , Key::OBRAKET , Key::RETURN}
+    , {Key::H     , Key::J     , Key::K     , Key::L      , Key::COLON , Key::QUOTE   , Key::NONE}
+    , {Key::N     , Key::M     , Key::COMMA , Key::DOT    , Key::SLASH , Key::NONE    , Key::BACKSPACE}
+    , {Key::NONE  , Key::R_ALT , MOD::RAISE , Key::R_SUPR , Key::MENU  , MOD::LOWER   , Key::R_CTRL}
   }
   , { // Raise (1)
     {Key::F6     , Key::F7      , Key::F8      , Key::F9      , Key::F10   , Key::F11   , Key::F12}
     , {Key::NONE , Key::NONE    , Key::ARROW_U , Key::NONE    , Key::NONE  , Key::NONE  , Key::RETURN}
     , {Key::NONE , Key::ARROW_L , Key::ARROW_D , Key::ARROW_R , Key::NONE  , Key::TILDE , Key::NONE}
-    , {Key::NONE , Key::NONE    , Key::NONE    , Key::NONE    , Key::NONE  , Key::NONE  , Key::BACKSPACE}
-    , {Key::NONE , Key::R_ALT   , MOD::RAISE   , MOD::LOWER   , Key::L_ALT , Key::NONE  , Key::R_CTRL}
+    , {Key::NONE , Key::NONE    , Key::NONE    , Key::NONE    , Key::NONE  , Key::NONE  , Key::DELETE}
+    , {Key::NONE , Key::R_ALT   , MOD::RAISE   , Key::R_SUPR  , Key::MENU  , MOD::LOWER , Key::R_CTRL}
   }
   , { // Lower(2)
-    {Key::NONE   , Key::NONE  , Key::NONE  , Key::NONE  , Key::NONE , Key::NONE   , Key::NONE}
-    , {Key::NONE , Key::NONE  , Key::NONE  , Key::NONE  , Key::NONE , Key::NONE   , Key::RETURN}
-    , {Key::NONE , Key::NONE  , Key::NONE  , Key::NONE  , Key::NONE , Key::NONE   , Key::NONE}
-    , {Key::NONE , Key::NONE  , Key::NONE  , Key::NONE  , Key::NONE , Key::NONE   , Key::BACKSPACE}
-    , {Key::NONE , Key::R_ALT , MOD::RAISE , MOD::LOWER , Key::MENU , Key::R_SUPR , Key::R_CTRL}
+    {Key::NONE   , Key::NONE  , Key::NONE   , Key::NONE   , Key::NONE , Key::NONE   , Key::NONE}
+    , {Key::NONE , Key::NONE  , Key::PGUP   , Key::NONE   , Key::NONE , Key::NONE   , Key::RETURN}
+    , {Key::NONE , Key::HOME  , Key::PGDOWN , Key::END    , Key::NONE , Key::NONE   , Key::NONE}
+    , {Key::NONE , Key::NONE  , Key::NONE   , Key::NONE   , Key::NONE , Key::NONE   , Key::BACKSPACE}
+    , {Key::NONE , Key::R_ALT , MOD::RAISE  , Key::R_SUPR , Key::MENU , MOD::LOWER  , Key::R_CTRL}
   }
 };
 
