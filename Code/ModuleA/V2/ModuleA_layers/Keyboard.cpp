@@ -2,7 +2,7 @@
 #include <string.h>
 #include "keyboard.h"
 
-const uint8_t REPORT_ID = 0x02;
+const uint8_t REPORT_ID = 0x01;
 
 static const uint8_t hidReportDescriptor[] PROGMEM = {
 

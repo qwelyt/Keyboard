@@ -44,18 +44,18 @@ uint8_t keys[layers][numRows][numCols] = {
     , {Key::NONE  , Key::R_ALT , MOD::RAISE , Key::R_SUPR , Key::MENU  , MOD::LOWER   , Key::R_CTRL}
   }
   , { // Raise (1)
-    {Key::F6     , Key::F7      , Key::F8      , Key::F9      , Key::F10   , Key::F11   , Key::F12}
-    , {Key::NONE , Key::NONE    , Key::ARROW_U , Key::NONE    , Key::NONE  , Key::NONE  , Key::RETURN}
-    , {Key::NONE , Key::ARROW_L , Key::ARROW_D , Key::ARROW_R , Key::NONE  , Key::TILDE , Key::NONE}
-    , {Key::NONE , Key::NONE    , Key::NONE    , Key::NONE    , Key::NONE  , Key::NONE  , Key::DELETE}
-    , {Key::NONE , Key::R_ALT   , MOD::RAISE   , Key::R_SUPR  , Key::MENU  , MOD::LOWER , Key::R_CTRL}
+    {Key::F6     , Key::F7      , Key::F8      , Key::F9      , Key::F10   , Key::F11     , Key::F12}
+    , {Key::NONE , Key::NONE    , Key::ARROW_U , Key::NONE    , Key::NONE  , Key::CBRAKET , Key::RETURN}
+    , {Key::NONE , Key::ARROW_L , Key::ARROW_D , Key::ARROW_R , Key::NONE  , Key::TILDE   , Key::NONE}
+    , {Key::NONE , Key::NONE    , Key::NONE    , Key::NONE    , Key::NONE  , Key::NONE    , Key::DELETE}
+    , {Key::NONE , Key::R_ALT   , MOD::RAISE   , Key::R_SUPR  , Key::MENU  , MOD::LOWER   , Key::R_CTRL}
   }
   , { // Lower(2)
-    {Key::NONE   , Key::NONE  , Key::NONE   , Key::NONE   , Key::NONE , Key::NONE   , Key::NONE}
-    , {Key::NONE , Key::NONE  , Key::PGUP   , Key::NONE   , Key::NONE , Key::NONE   , Key::RETURN}
-    , {Key::NONE , Key::HOME  , Key::PGDOWN , Key::END    , Key::NONE , Key::NONE   , Key::NONE}
-    , {Key::NONE , Key::NONE  , Key::NONE   , Key::NONE   , Key::NONE , Key::NONE   , Key::BACKSPACE}
-    , {Key::NONE , Key::R_ALT , MOD::RAISE  , Key::R_SUPR , Key::MENU , MOD::LOWER  , Key::R_CTRL}
+    {Key::NONE     , Key::NONE  , Key::NONE   , Key::NONE   , Key::NONE , Key::NONE   , Key::NONE}
+    , {Key::NONE   , Key::NONE  , Key::PGUP   , Key::NONE   , Key::NONE , Key::NONE   , Key::RETURN}
+    , {Key::INSERT , Key::HOME  , Key::PGDWN , Key::END    , Key::NONE , Key::NONE   , Key::NONE}
+    , {Key::NONE   , Key::NONE  , Key::NONE   , Key::NONE   , Key::NONE , Key::NONE   , Key::BACKSPACE}
+    , {Key::NONE   , Key::R_ALT , MOD::RAISE  , Key::R_SUPR , Key::MENU , MOD::LOWER  , Key::R_CTRL}
   }
 };
 

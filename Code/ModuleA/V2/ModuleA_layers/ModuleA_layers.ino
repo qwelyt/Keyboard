@@ -51,9 +51,9 @@ uint8_t keys[layers][numRows][numCols] = {
     , {Key::L_CTRL  , Key::L_SUPR , MOD::LOWER , MOD::RAISE , Key::L_ALT , Key::NONE , Key::NONE}
   }
   , { // Lower(2)
-    {Key::NONE      , Key::NONE   , Key::MUTE  , Key::VOL_DN , Key::VOL_UP , Key::NONE , Key::NONE}
-    , {Key::TAB     , Key::NONE   , Key::PLAY  , Key::PREV   , Key::NEXT   , Key::NONE , Key::NONE}
-    , {Key::ESC     , Key::NONE   , Key::NONE  , Key::NONE   , Key::NONE   , Key::NONE , Key::NONE}
+    {Key::NONE      , Key::NONE   , Key::GACC  , Key::NONE , Key::NONE , Key::NONE , Key::NONE}
+    , {Key::TAB     , Key::NONE   , Key::MUTE  , Key::VOL_UP   , Key::VOL_DN   , Key::NONE , Key::NONE}
+    , {Key::ESC     , Key::NONE   , Key::PLAY  , Key::PREV   , Key::NEXT   , Key::NONE , Key::NONE}
     , {Key::L_SHFT  , Key::NONE   , Key::NONE  , Key::NONE   , Key::NONE   , Key::NONE , Key::NONE}
     , {Key::L_CTRL  , Key::L_SUPR , MOD::LOWER , MOD::RAISE  , Key::L_ALT  , Key::NONE , Key::NONE}
   }
