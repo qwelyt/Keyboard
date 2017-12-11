@@ -51,11 +51,11 @@ uint8_t keys[layers][numRows][numCols] = {
     , {Key::NONE , Key::R_ALT   , MOD::RAISE   , Key::R_SUPR  , Key::MENU  , MOD::LOWER   , Key::R_CTRL}
   }
   , { // Lower(2)
-    {Key::NONE     , Key::NONE  , Key::NONE   , Key::NONE   , Key::NONE , Key::NONE   , Key::NONE}
-    , {Key::NONE   , Key::NONE  , Key::PGUP   , Key::NONE   , Key::NONE , Key::NONE   , Key::RETURN}
-    , {Key::INSERT , Key::HOME  , Key::PGDWN , Key::END    , Key::NONE , Key::NONE   , Key::NONE}
-    , {Key::NONE   , Key::NONE  , Key::NONE   , Key::NONE   , Key::NONE , Key::NONE   , Key::BACKSPACE}
-    , {Key::NONE   , Key::R_ALT , MOD::RAISE  , Key::R_SUPR , Key::MENU , MOD::LOWER  , Key::R_CTRL}
+    {Key::NONE     , Key::NONE  , Key::NONE   , Key::NONE   , Key::NONE      , Key::NONE   , Key::NONE}
+    , {Key::NONE   , Key::NONE  , Key::PGUP   , Key::NONE   , Key::PRNT_SCRN , Key::NONE   , Key::RETURN}
+    , {Key::INSERT , Key::HOME  , Key::PGDWN  , Key::END    , Key::NONE      , Key::NONE   , Key::NONE}
+    , {Key::NONE   , Key::NONE  , Key::NONE   , Key::NONE   , Key::NONE      , Key::NONE   , Key::BACKSPACE}
+    , {Key::NONE   , Key::R_ALT , MOD::RAISE  , Key::R_SUPR , Key::MENU      , MOD::LOWER  , Key::R_CTRL}
   }
 };
 
