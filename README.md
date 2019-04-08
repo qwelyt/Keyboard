@@ -23,13 +23,13 @@ Credit where it is due: The Planck keyboard has this (https://youtu.be/bEPg8kk84
 This build is my first keyboard that I'm building from scratch. I've done a few mods, but never a complete build.
 To build this I'm using some mechanical switches (Black ALPS) that I 'rescued' from a to-be-thrown Dell AT101. I've got 104 keys from that old keyboard. Most of which still have the click sound. And I have the caps, ofc.
 
-The modules I will probably 3D print when I get my hands on a 3D printer.
+The modules cases is made to be 3D printed. I use a FlashForge Finder to print.
 
-I'm going for a NKRO, so I'll be using a lot of diods to get the matrix working. Pics will show up as work progresses as this is somewhat of a work-log.
+It's NKRO, so there is an 1N4149 diode for every switch.
 
-I'm using an Arduino Uno atm because that what I had laying around. For the final build I will probably go with a Teensy or Arduino Mini.
+The controller is an Arduino Micro (https://store.arduino.cc/arduino-micro).
 
-Each module will be it's own keyboard. Meaning, each module will have it's own controller. So you don't need to plug in A to be able to use B and vice versa. This ofc means that, for 3 modules, you need 3 USB ports. So I will probably build a USB hub as well. Makes for a cleaner setup as you will only need 1 cable going to the computer. Might try building in retractable cables in everything, but well see how much of a pain that is.
+Each module will be it's own keyboard. Meaning, each module will has it's own controller. So you don't need to plug in A to be able to use B and vice versa. This ofc means that, for 2 modules, you need 2 USB ports. One could build a USB hub as well to plug the modules into. Makes for a cleaner setup as you will only need 1 cable going to the computer. Might try building in retractable cables in everything if I take a stab at it, but well see how much of a pain that is.
 
 # Log
 | Todo | Doing | Done |
@@ -43,13 +43,14 @@ Each module will be it's own keyboard. Meaning, each module will have it's own c
 ||| Assemble test module |
 ||| Code test module |
 ||| Get real controller board |
-|| Refactor ||
-| Print module A |||
-| Print module B |||
-| Assemble A |||
-| Assemble B |||
-| Code A |||
-| Code B |||
+||| Refactor |
+||| Print module A |
+||| Print module B |
+||| Assemble A |
+||| Assemble B |
+||| Code A |
+||| Code B |
 | ??? ||| 
+| Refactor|||
 | Profit|||
 
